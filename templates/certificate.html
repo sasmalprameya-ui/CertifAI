@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Certificate</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+<nav>
+    <div class="logo">CertifAI</div>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/generate">Generate</a></li>
+        <li><a href="#">Verify</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</nav>
+<div class="certificate">
+<div class="seal">
+    VERIFIED
+</div>
+<div class="watermark">CERTIFAI</div>
+<div class="border">
+
+<h3>CERTIFICATE</h3>
+
+<h2>OF COMPLETION</h2>
+
+<p>This is proudly presented to</p>
+
+<h1>{{ name }}</h1>
+
+<p>for successfully completing</p>
+
+<h2>{{ course }}</h2>
+
+<p>organized by</p>
+
+<h3>{{ organization }}</h3>
+
+<br>
+
+<p>
+In recognition of dedication,
+commitment and outstanding performance.
+</p>
+
+<div class="bottom">
+
+    <div>
+        <strong>Certificate ID</strong><br>
+        {{ certificate_id }}
+    </div>
+
+    <div>
+        <strong>Date</strong><br>
+        {{ date }}
+    </div>
+
+</div>
+
+<div class="signature-row">
+
+    <div>
+        <hr>
+        <p>Director</p>
+    </div>
+
+    <div>
+        <hr>
+        <p>Program Manager</p>
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+<button onclick="window.print()">Print Certificate</button>
+
+<a href="/generate">
+    <button>Generate Another</button>
+</a>
+
+<a href="/">
+    <button>Home</button>
+</a>
+</body>
+</html>

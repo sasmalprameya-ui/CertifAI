@@ -1,53 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Generate Certificate | CertifAI</title>
+    <meta charset="UTF-8">
+    <title>Generate Certificate</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
 <nav>
-    <div class="logo">
-        <h2>🎓 CertifAI</h2>
-    </div>
+    <div class="logo">CertifAI</div>
 
     <ul>
         <li><a href="/">Home</a></li>
+        <li><a href="/generate">Generate</a></li>
+        <li><a href="#">Verify</a></li>
+        <li><a href="#">About</a></li>
     </ul>
 </nav>
 
-<div class="hero">
+<div class="form-container">
 
-<div class="left">
-
-<h1>Generate Certificate</h1>
-
-<p>Fill in the details below.</p>
-
-<br>
-
-<form>
+<form method="POST">
 
 <label>Name</label><br>
-<input type="text" placeholder="Enter Name"><br><br>
+<input type="text" name="name" placeholder="Enter Name" required><br><br>
 
 <label>Course/Event</label><br>
-<input type="text" placeholder="Course Name"><br><br>
+<input type="text" name="course" placeholder="Course Name" required><br><br>
 
 <label>Organization</label><br>
-<input type="text" placeholder="Organization"><br><br>
+<input type="text" name="organization" placeholder="Organization" required><br><br>
 
 <label>Date</label><br>
-<input type="date"><br><br>
+<input type="date" name="date" required><br><br>
 
 <button type="submit">
 Generate Certificate
 </button>
 
 </form>
-
-</div>
 
 </div>
 
