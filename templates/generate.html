@@ -20,23 +20,98 @@
         <li><a href="#">About</a></li>
     </ul>
 </nav>
+<section class="generate-header">
 
-<div class="form-container">
+    <h1>Generate Certificate</h1>
 
+    <p>
+        Create professional digital certificates in just a few simple steps.
+    </p>
+
+</section>
+
+<section class="generate-steps">
+
+    <div class="step-box">
+
+        <span>1</span>
+
+        <p>Select Certificate Type</p>
+
+    </div>
+
+    <div class="step-box">
+
+        <span>2</span>
+
+        <p>Fill Required Details</p>
+
+    </div>
+
+    <div class="step-box">
+
+        <span>3</span>
+
+        <p>Choose AI Assisted Theme</p>
+
+    </div>
+
+    <div class="step-box">
+
+        <span>4</span>
+
+        <p>Preview Certificate</p>
+
+    </div>
+
+    <div class="step-box">
+
+        <span>5</span>
+
+        <p>Generate & Download</p>
+
+    </div>
+
+</section>
+<section class="certificate-types">
+
+    <h2>Select Certificate Type</h2>
+
+    <div class="type-grid">
+
+        <div class="type-card" data-type="Internship">Internship</div>
+        <div class="type-card" data-type="Workshop">Workshop</div>
+        <div class="type-card" data-type="Hackathon">Hackathon</div>
+        <div class="type-card" data-type="Competition">Competition</div>
+
+        <div class="type-card" data-type="Participation">Participation</div>
+        <div class="type-card" data-type="Completion">Completion</div>
+        <div class="type-card" data-type="Appreciation">Appreciation</div>
+        <div class="type-card" data-type="Excellence">Excellence</div>
+
+        <div class="type-card" data-type="Volunteer">Volunteer</div>
+        <div class="type-card" data-type="Winner">Winner</div>
+        <div class="type-card" data-type="Runner-Up">Runner-Up</div>
+        <div class="type-card" data-type="Seminar">Seminar</div>
+
+    </div>
+
+</section>
+<div class="form-container" id="certificateForm">
+<h2 id="formTitle">Generating: General Certificate</h2>
 <form method="POST">
-
+<input type="hidden" id="certificateType" name="certificateType">
 <label>Name</label><br>
 <input type="text" name="name" placeholder="Enter Name" required><br><br>
-
-<label>Course/Event</label><br>
-<input type="text" name="course" placeholder="Course Name" required><br><br>
 
 <label>Organization</label><br>
 <input type="text" name="organization" placeholder="Organization" required><br><br>
 
 <label>Date</label><br>
 <input type="date" name="date" required><br><br>
+<div id="dynamicFields">
 
+</div>
 <button type="submit">
 Generate Certificate
 </button>
@@ -44,6 +119,209 @@ Generate Certificate
 </form>
 
 </div>
+<script>
+const formContainer = document.getElementById("certificateForm");
 
+const cards = document.querySelectorAll(".type-card");
+
+const hiddenInput = document.getElementById("certificateType");
+
+const formTitle = document.getElementById("formTitle");
+
+const dynamicFields = document.getElementById("dynamicFields");
+cards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        cards.forEach(c => c.classList.remove("active"));
+
+        card.classList.add("active");
+
+        const type = card.dataset.type;
+        switch(type){
+
+    case "Internship":
+
+        dynamicFields.innerHTML = `
+
+            <label>Internship Domain</label>
+            <input type="text" name="domain" placeholder="Enter Internship Domain">
+
+            <label>Mentor</label>
+            <input type="text" name="mentor" placeholder="Enter Mentor Name">
+
+            <label>Duration</label>
+            <input type="text" name="duration" placeholder="e.g. 2 Months">
+
+        `;
+
+        break;
+case "Workshop":
+
+    dynamicFields.innerHTML = `
+
+        <label>Workshop Name</label>
+        <input type="text" name="workshop" placeholder="Enter Workshop Name">
+
+        <label>Instructor</label>
+        <input type="text" name="instructor" placeholder="Enter Instructor Name">
+
+        <label>Duration</label>
+        <input type="text" name="duration" placeholder="e.g. 3 Days">
+
+    `;
+
+    break;
+    case "Hackathon":
+
+    dynamicFields.innerHTML = `
+
+        <label>Hackathon Name</label>
+        <input type="text" name="hackathon" placeholder="Enter Hackathon Name">
+
+        <label>Team Name</label>
+        <input type="text" name="team" placeholder="Enter Team Name">
+
+        <label>Position</label>
+        <input type="text" name="position" placeholder="Winner / Runner-Up / Participant">
+
+    `;
+
+    break;
+    case "Competition":
+
+    dynamicFields.innerHTML = `
+
+        <label>Competition Name</label>
+        <input type="text" name="competition" placeholder="Enter Competition Name">
+
+        <label>Rank / Position</label>
+        <input type="text" name="rank" placeholder="Enter Rank">
+
+    `;
+
+    break;
+    case "Participation":
+
+    dynamicFields.innerHTML = `
+
+        <label>Event Name</label>
+        <input type="text" name="event" placeholder="Enter Event Name">
+
+        <label>Organizer</label>
+        <input type="text" name="organizer" placeholder="Enter Organizer Name">
+
+    `;
+
+    break;
+    case "Completion":
+
+    dynamicFields.innerHTML = `
+
+        <label>Course Name</label>
+        <input type="text" name="course" placeholder="Enter Course Name">
+
+        <label>Duration</label>
+        <input type="text" name="duration" placeholder="e.g. 6 Weeks">
+
+    `;
+
+    break;
+    case "Appreciation":
+
+    dynamicFields.innerHTML = `
+
+        <label>Reason for Appreciation</label>
+        <input type="text" name="reason" placeholder="Enter Reason">
+
+    `;
+
+    break;
+    case "Excellence":
+
+    dynamicFields.innerHTML = `
+
+        <label>Achievement</label>
+        <input type="text" name="achievement" placeholder="Enter Achievement">
+
+    `;
+
+    break;
+    case "Volunteer":
+
+    dynamicFields.innerHTML = `
+
+        <label>Volunteer Role</label>
+        <input type="text" name="role" placeholder="Enter Volunteer Role">
+
+        <label>Department / Event</label>
+        <input type="text" name="department" placeholder="Enter Department or Event">
+
+    `;
+
+    break;
+    case "Winner":
+
+    dynamicFields.innerHTML = `
+
+        <label>Competition Name</label>
+        <input type="text" name="competition" placeholder="Enter Competition Name">
+
+        <label>Winning Position</label>
+        <input type="text" name="position" placeholder="1st Place">
+
+    `;
+
+    break;
+    case "Runner-Up":
+
+    dynamicFields.innerHTML = `
+
+        <label>Competition Name</label>
+        <input type="text" name="competition" placeholder="Enter Competition Name">
+
+        <label>Position</label>
+        <input type="text" name="position" placeholder="Runner-Up">
+
+    `;
+
+    break;
+    case "Seminar":
+
+    dynamicFields.innerHTML = `
+
+        <label>Seminar Name</label>
+        <input type="text" name="seminar" placeholder="Enter Seminar Name">
+
+        <label>Speaker</label>
+        <input type="text" name="speaker" placeholder="Enter Speaker Name">
+
+    `;
+
+    break;
+    default:
+
+        dynamicFields.innerHTML = "";
+
+}
+
+
+        hiddenInput.value = type;
+
+        formTitle.innerText = "Generating: " + type + " Certificate";
+
+        formContainer.style.display = "block";
+        formContainer.scrollIntoView({
+
+    behavior: "smooth",
+
+    block: "start"
+
+});
+    });
+
+});
+
+</script>
 </body>
 </html>

@@ -432,3 +432,223 @@ nav ul li a:hover{
     color:#ccc;
 
 }
+/* GENERATE PAGE */
+
+.generate-header{
+
+    text-align:center;
+    padding:60px 20px 30px;
+
+}
+
+.generate-header h1{
+
+    font-size:42px;
+    color:#0B1F4D;
+    margin-bottom:15px;
+
+}
+
+.generate-header p{
+
+    color:#555;
+    font-size:18px;
+
+}
+
+.generate-steps{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:18px;
+
+    margin:20px auto 50px;
+    width:90%;
+
+}
+
+.step-box{
+
+    background:#F5F7FB;
+    border:1px solid #ddd;
+    border-radius:12px;
+
+    padding:18px;
+    width:170px;
+
+    text-align:center;
+
+}
+
+.step-box span{
+
+    width:35px;
+    height:35px;
+
+    background:#0B1F4D;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:auto;
+    border-radius:50%;
+
+    font-weight:bold;
+
+}
+
+.step-box p{
+
+    margin-top:15px;
+    font-size:14px;
+
+}
+
+.certificate-types{
+
+    width:90%;
+    margin:50px auto;
+
+}
+
+.certificate-types h2{
+
+    text-align:center;
+    margin-bottom:30px;
+    color:#0B1F4D;
+
+}
+
+.type-grid{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+
+}
+
+.type-card{
+
+    background:white;
+
+    border:2px solid #E5E5E5;
+    border-radius:12px;
+
+    padding:18px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.type-card:hover{
+
+    border-color:#D4AF37;
+    color:#0B1F4D;
+
+    transform:translateY(-4px);
+
+}
+.type-card.active{
+
+    background:#0B1F4D;
+
+    color:white;
+
+    border:2px solid #D4AF37;
+
+}
+/* FORM CONTAINER */
+
+.form-container{
+
+    display: none;
+
+}
+/* GENERATE FORM */
+
+.form-container{
+
+    display:none;
+
+    width:60%;
+
+    margin:50px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+}
+#formTitle{
+
+    text-align:center;
+
+    color:#0B1F4D;
+
+    margin-bottom:30px;
+
+}
+.form-container label{
+
+    font-weight:600;
+
+    color:#0B1F4D;
+
+}
+.form-container input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin:8px 0 20px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+.form-container button{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#0B1F4D;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+}
+
+.form-container button:hover{
+
+    background:#D4AF37;
+
+    color:#0B1F4D;
+
+}
