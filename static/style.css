@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Pinyon+Script&family=Poppins:wght@300;400;500;600&display=swap');
 *{
     margin:0;
     padding:0;
@@ -169,110 +170,242 @@ nav ul li a:hover{
 /* Certificate */
 
 .certificate{
-    position : relative;
+    position:relative;
     width:900px;
     margin:40px auto;
-    background:white;
-    border:12px solid #d4af37;
-    padding:50px;
+    background:#FCF8EE;
+    border:8px solid #D4AF37;
+    padding:20px;
     text-align:center;
-    box-shadow:0 0 20px rgba(0,0,0,0.3);
-    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+    border-radius:18px;
+}
+.border{
+    border:2px solid  #C9A227;
+    padding:35px;
+    position:relative;
 }
 
 .certificate h1{
-    font-size:48px;
+    font-family:'Pinyon Script', cursive;
+    font-size:82px;
+    font-weight:400;
     color:#0B1F4D;
-    margin:20px 0;
+    margin:18px 0;
 }
 
 .certificate h2{
-    font-size:34px;
-    color:#333;
+    font-family:'Pinyon Script', cursive;
+    font-size:60px;
+    font-weight:400;
+    color:#0B1F4D;
+    margin-top:0px;
+    margin-bottom:18px;
 }
 
 .certificate h3{
-    font-size:24px;
-    color:#666;
+    font-family:'Pinyon Script', cursive;
+    font-size:72px;
+    font-weight:400;
+    color:#0B1F4D;
+    margin-bottom:-18px;
+}
+.activity{
+    font-family:'Pinyon Script', cursive;
+    font-size:56px;
+    font-weight:400;
+    color:#8B6B1F;
+    margin:6px 0 15px 0;
 }
 
 .certificate p{
+
+    font-family:'Cormorant Garmorant ',serif;
     font-size:20px;
     line-height:1.8;
+    margin:8px 0;
+    color:#444;
+
+}
+.certificate strong{
+    font-weight:700;
+    color:#1F1F1F;
 }
 
 .bottom{
+
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
-    margin-top:50px;
+
+    margin-top:25px;
+
+    padding-top:15px;
+
+    border-top:1px solid rgba(0,0,0,.15);
+
 }
+
 .bottom div{
+
     width:45%;
-}
 
-.bottom div:nth-child(2){
-    text-align:center;
-}
+    font-family:'Poppins', sans-serif;
 
-.bottom div:nth-child(3){
-    text-align:right;
-}
+    font-size:14px;
 
-.bottom hr{
-    border:none;
-    border-top:1px solid #555;
-    margin-bottom:8px;
-}
+    color:#666;
 
+}
 .watermark{
+
     position:absolute;
+
     top:50%;
     left:50%;
+
     transform:translate(-50%,-50%);
-    font-size:80px;
-    font-weight:bold;
-    letter-spacing:8px;
-    color:rgba(30,50,90,0.03);
+
+    width:420px;
+    height:420px;
+
     pointer-events:none;
     user-select:none;
+
+    z-index:0;
+
+    opacity:.08;
+
+}
+
+.watermark-svg{
+
+    width:100%;
+    height:100%;
+
+}
+
+.watermark-text{
+
+    font-family:'Cormorant Garamond', serif;
+    font-size:42px;
+    font-weight:700;
+    fill:#0B1F4D;
+    letter-spacing:6px;
+
+}
+.top-flourish,
+.bottom-flourish{
+
+    font-size:28px;
+    color:#C9A227;
+    letter-spacing:12px;
+
+    margin:20px 0;
+
+    font-family:'Cormorant Garamond', serif;
+
 }
 .seal{
-    position:absolute;
-    top:35px;
-    right:35px;
 
-    width:100px;
-    height:100px;
+    position:absolute;
+    top:28px;
+    right:28px;
+
+    width:90px;
+    height:90px;
 
     border-radius:50%;
-    background:#d4af37;
-    color:white;
+
+    background:#D4AF37;          /* Light gold centre */
+
+    border:5px solid #8B6B1F;    /* Dark gold outer ring */
+
+    outline:3px solid #0B1F4D;   /* Navy middle ring */
+    outline-offset:-8px;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    font-weight:bold;
-    font-size:18px;
+    text-align:center;
 
-    box-shadow:0 0 10px rgba(0,0,0,.25);
+    box-shadow:0 3px 8px rgba(0,0,0,.18);
+
+}
+.seal::before{
+
+    content:"";
+    display:none;
+
+}
+.seal-inner{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:4px;
+    padding:10px;
+
+}
+.seal-brand{
+
+    font-family:'Cormorant Garamond', serif;
+    font-size:14px;
+    font-weight:700;
+    color:#0B1F4D;
+    letter-spacing:1.8px;
+    line-height:1;
+
+}
+.seal-text{
+
+    font-family:'Cormorant Garamond', serif;
+    font-size:10px;
+    font-weight:600;
+    color:#0B1F4D;
+    letter-spacing:2px;
+    margin-top:4px;
+
 }
 .signature-row{
+
     display:flex;
-    justify-content:space-between;
-    margin-top:35px;
+    justify-content:space-around;
+    align-items:center;
+
+    margin-top:50px;
+    margin-bottom:35px;
+
 }
 
 .signature-row div{
-    width:220px;
+
+    width:260px;
     text-align:center;
+
 }
 
 .signature-row hr{
+
     border:none;
-    border-top:1px solid #555;
-    margin-bottom:8px;
+    border-top:2px solid #666;
+    margin-bottom:12px;
+
+}
+
+.signature-row p{
+
+    font-family:'Cormorant Garamond', serif;
+    font-size:20px;
+    font-weight:600;
+    color:#222;
+
 }
 /* WHY CERTIFAI */
 

@@ -24,6 +24,8 @@ def generate():
            certificate_text = "for successfully completing the internship in"
 
            activity = request.form["domain"]
+           mentor = request.form["mentor"]
+           duration = request.form["duration"]
         elif certificate_type == "Workshop":
            certificate_title = "WORKSHOP"
            certificate_text = "for successfully attending"
@@ -54,27 +56,30 @@ def generate():
             certificate_title = "COMPLETION"
             certificate_text = "for successfully completing"
 
-            activity = request.form["Course"]
+            activity = request.form["course"]
             duration = request.form["duration"]   
         elif certificate_type == "Appreciation":
             certificate_title = "APPRECIATION"
             certificate_text = "in appreciation for"
 
             activity = request.form["reason"]
+            reason = request.form["reason"]
         elif certificate_type == "Excellence":
             certificate_title = "EXCELLENCE"
             certificate_text = "for excellence in"
 
             activity = request.form["achievement"]
+            achievement = request.form["achievement"]
         elif certificate_type == "Volunteer":
             certificate_title = "VOLUNTEER"
             certificate_text = "for dedicated volunteer service as"
 
             activity = request.form["role"]
-            department = request.form["department"]   
+            department = request.form["department"]
+            role = request.form["role"]   
         elif certificate_type == "Winner":
             certificate_title = "WINNER"
-            certificate_text = "for securing first position in"
+            certificate_text = "for emerging as the winner in"
 
             activity = request.form["competition"]
             position = request.form["position"]
@@ -83,9 +88,10 @@ def generate():
             certificate_text = "for securing runner-up position in"
 
             activity = request.form["competition"]
+            position = request.form["position"]
         elif certificate_type == "Seminar":
             certificate_title = "SEMINAR"
-            certificate_text = "for successfully attending"
+            certificate_text = "for successfully attending the seminar on"
 
             activity = request.form["seminar"]
             speaker = request.form["speaker"]              
@@ -101,7 +107,20 @@ def generate():
             activity=activity,
             organization=organization,
             date=date,
-            certificate_id=certificate_id
+            certificate_id=certificate_id,
+            certificate_type=certificate_type,
+            mentor=locals().get("mentor", ""),
+            duration=locals().get("duration", ""),
+            instructor=locals().get("instructor", ""),
+            team=locals().get("team", ""),
+            position=locals().get("position", ""),
+            rank=locals().get("rank", ""),
+            organizer=locals().get("organizer", ""),
+            reason=locals().get("reason", ""),
+            achievement=locals().get("achievement", ""),
+            role=locals().get("role", ""),
+            department=locals().get("department", ""),
+            speaker=locals().get("speaker", ""),
         )
 
     return render_template("generate.html")

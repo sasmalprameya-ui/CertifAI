@@ -23,14 +23,83 @@
 </nav>
 <div class="certificate">
 <div class="seal">
-    VERIFIED
+    <div class="seal-inner">
+        <span class="seal-brand">CERTIFAI</span>
+        <span class="seal-text">VERIFIED</span>
+    </div>
+
+    <div class="ribbon left"></div>
+    <div class="ribbon right"></div>
 </div>
-<div class="watermark">CERTIFAI</div>
+<div class="watermark">
+    <svg viewBox="0 0 500 500" class="watermark-svg">
+
+        <circle cx="250" cy="250" r="135"
+                fill="none"
+                stroke="#D4AF37"
+                stroke-width="4"
+                opacity="0.08"/>
+        <path d="M170 180
+         C145 205 138 245 150 285
+         C162 325 185 355 215 380"
+      fill="none"
+      stroke="#C9A227"
+      stroke-width="6"
+      stroke-linecap="round"
+      opacity="0.10"/>
+
+        <path d="M330 180
+         C355 205 362 245 350 285
+         C338 325 315 355 285 380"
+      fill="none"
+      stroke="#C9A227"
+      stroke-width="6"
+      stroke-linecap="round"
+      opacity="0.10"/>
+      <ellipse cx="160" cy="210" rx="6" ry="12"
+         transform="rotate(-35 160 210)"
+         fill="#C9A227"
+         opacity=".10"/>
+
+      <ellipse cx="155" cy="245" rx="6" ry="12"
+         transform="rotate(-15 155 245)"
+         fill="#C9A227"
+         opacity=".10"/>
+
+      <ellipse cx="165" cy="280" rx="6" ry="12"
+         transform="rotate(10 165 280)"
+         fill="#C9A227"
+         opacity=".10"/>  
+      
+      <ellipse cx="340" cy="210" rx="6" ry="12"
+         transform="rotate(35 340 210)"
+         fill="#C9A227"
+         opacity=".10"/>
+
+      <ellipse cx="345" cy="245" rx="6" ry="12"
+         transform="rotate(15 345 245)"
+         fill="#C9A227"
+         opacity=".10"/>
+
+      <ellipse cx="335" cy="280" rx="6" ry="12"
+         transform="rotate(-10 335 280)"
+         fill="#C9A227"
+         opacity=".10"/>   
+
+        <text x="250"
+              y="258"
+              text-anchor="middle"
+              class="watermark-text">
+              CERTIFAI
+        </text>
+
+    </svg>
+</div>
 <div class="border">
+<div class="top-flourish">❦ ❖ ❦</div>
+<h3>Certificate</h3>
 
-<h3>CERTIFICATE</h3>
-
-<h2>OF {{ certificate_title }}</h2>
+<h2>Of {{ certificate_title.title() }}</h2>
 
 <p>This is proudly presented to</p>
 
@@ -38,30 +107,170 @@
 
 <p>{{ certificate_text }}</p>
 
-<h2>{{ activity }}</h2>
-
-<p>organized by</p>
-
-<h3>{{ organization }}</h3>
-
-<br>
+<h2 class="activity">{{ activity }}</h2>
+{% if certificate_type == "Internship" %}
 
 <p>
-In recognition of dedication,
-commitment and outstanding performance.
+under the mentorship of <strong>{{ mentor }}</strong> for a duration of
+<strong>{{ duration }}</strong> at <strong>{{ organization }}</strong>,
+reflecting professionalism, commitment, and continuous learning throughout the program.
 </p>
 
-<div class="bottom">
+{% elif certificate_type == "Workshop" %}
 
-    <div>
-        <strong>Certificate ID</strong><br>
-        {{ certificate_id }}
-    </div>
+<p>
+conducted by <strong>{{ instructor }}</strong> at
+<strong>{{ organization }}</strong> over a duration of
+<strong>{{ duration }}</strong>, enhancing practical knowledge and professional skills.
+</p>
 
-    <div>
-        <strong>Date</strong><br>
-        {{ date }}
-    </div>
+{% elif certificate_type == "Hackathon" %}
+
+<p>
+representing <strong>Team {{ team }}</strong> at
+<strong>{{ organization }}</strong>, securing the
+<strong>{{ position }}</strong> position through innovation, teamwork, and problem-solving.
+</p>
+{% elif certificate_type == "Competition" %}
+
+<p>
+organized by <strong>{{ organization }}</strong>, achieving the
+<strong>{{ rank }}</strong> position through outstanding performance,
+determination, and competitive excellence.
+</p>
+{% elif certificate_type == "Participation" %}
+
+<p>
+organized by <strong>{{ organizer }}</strong> at
+<strong>{{ organization }}</strong>, demonstrating enthusiasm,
+active involvement, and a commitment to learning,
+collaboration, and teamwork throughout the event.
+</p>
+{% elif certificate_type == "Completion" %}
+
+<p>
+over a duration of <strong>{{ duration }}</strong> at
+<strong>{{ organization }}</strong>, reflecting perseverance,
+dedication, and a strong commitment to continuous learning.
+</p>
+{% elif certificate_type == "Appreciation" %}
+
+<p>
+presented by <strong>{{ organization }}</strong>, acknowledging valuable contributions,
+dedication, and unwavering support.
+</p>
+{% elif certificate_type == "Excellence" %}
+
+<p>
+at <strong>{{ organization }}</strong>, demonstrating exceptional
+achievement through dedication,
+innovation, and excellence.
+</p>
+{% elif certificate_type == "Volunteer" %}
+
+<p>
+for the <strong>{{ department }}</strong> at
+<strong>{{ organization }}</strong>, making a meaningful contribution
+through dedication, teamwork, and selfless service.
+</p>
+{% elif certificate_type == "Winner" %}
+
+<p>
+organized by <strong>{{ organization }}</strong>, securing the
+<strong>{{ position }}</strong> position through exceptional talent,
+determination, and competitive spirit.
+</p>
+{% elif certificate_type == "Runner-Up" %}
+
+<p>
+organized by <strong>{{ organization }}</strong>, securing the
+<strong>{{ position }}</strong> position through remarkable
+performance, perseverance, and sportsmanship.
+</p>
+{% elif certificate_type == "Seminar" %}
+
+<p>
+delivered by <strong>{{ speaker }}</strong> at
+<strong>{{ organization }}</strong>, enriching knowledge through
+insightful discussions and active participation.
+</p>
+
+{% endif %}
+
+{% if certificate_type == "Internship" %}
+
+<p>
+Your dedication and commitment throughout the internship are sincerely appreciated, and we wish you continued success in your future endeavors.
+</p>
+
+{% elif certificate_type == "Workshop" %}
+
+<p>
+May the knowledge and skills gained through this workshop inspire your continued learning and professional growth.
+</p>
+
+{% elif certificate_type == "Hackathon" %}
+
+<p>
+Your creativity, teamwork, and determination are truly commendable, and we wish you continued success in future innovations.
+</p>
+
+{% elif certificate_type == "Competition" %}
+
+<p>
+Your outstanding performance reflects your hard work and perseverance. Congratulations on this well-deserved achievement.
+</p>
+
+{% elif certificate_type == "Participation" %}
+
+<p>
+Your enthusiasm and active involvement are greatly appreciated, and we encourage you to continue participating in future initiatives.
+</p>
+
+{% elif certificate_type == "Completion" %}
+
+<p>
+Your successful completion of this program marks another step in your learning journey, and we wish you continued success ahead.
+</p>
+
+{% elif certificate_type == "Appreciation" %}
+
+<p>
+Your valuable contributions have made a meaningful difference, and your efforts are sincerely appreciated.
+</p>
+
+{% elif certificate_type == "Excellence" %}
+
+<p>
+Your exceptional achievements set a benchmark for excellence, and we wish you continued success in all your future endeavors.
+</p>
+
+{% elif certificate_type == "Volunteer" %}
+
+<p>
+Your selfless service and dedication to the community are deeply appreciated, and we thank you for making a positive impact.
+</p>
+
+{% elif certificate_type == "Winner" %}
+
+<p>
+Congratulations on this remarkable achievement. May this success inspire you to reach even greater heights.
+</p>
+
+{% elif certificate_type == "Runner-Up" %}
+
+<p>
+Your commendable performance reflects determination and resilience. We wish you even greater success in the future.
+</p>
+
+{% elif certificate_type == "Seminar" %}
+
+<p>
+May the knowledge and insights gained through this seminar continue to support your personal and professional growth.
+</p>
+
+{% endif %}
+<div class="bottom-flourish">❦ ❖ ❦</div>
 
 </div>
 
@@ -78,7 +287,17 @@ commitment and outstanding performance.
     </div>
 
 </div>
+<div class="bottom">
 
+    <div>
+        <strong>Certificate ID</strong><br>
+        {{ certificate_id }}
+    </div>
+
+    <div>
+        <strong>Date</strong><br>
+        {{ date }}
+    </div>
 
 </div>
 
